@@ -1,6 +1,9 @@
 
 " {{{ Plugins
 
+" Override mapleader as early as possible
+let mapleader = '`'
+
 " Required:
 set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
 
@@ -45,7 +48,7 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   " Other
   call dein#add('mbbill/undotree', {'on_cmd': ':UndotreeToggle'})  " Undo tree manager
   call dein#add('qpkorr/vim-renamer', {'on_cmd': ':Renamer'})      " Rename files in the vim buffer
-  call dein#add('eugen0329/vim-esearch', {'on_cmd': '<leader>ff'}) " Performing project-wide async search and replace
+  call dein#add('eugen0329/vim-esearch', {'on_map': '<leader>ff'}) " Performing project-wide async search and replace
   call dein#add('christoomey/vim-tmux-navigator')                  " Seamlessly navigation between vim and tmux splits
   call dein#add('jeetsukumaran/vim-buffergator')                   " List, select and switch between buffers
   call dein#add('ctrlpvim/ctrlp.vim')                              " Fuzzy file/buffer/mru/tag finder
@@ -58,24 +61,27 @@ endif
 
 " {{{ Common
 
-set enc=utf-8         " UTF-8 as default encoding
-"set nobackup         " Disable backup files
-"set nowritebackup    " Only in case you don't want a backup file while editing
-"set noswapfile       " Disable swap files
-set undofile          " Enable undo file
-set expandtab         " Expand tabs into spaces
-set shiftwidth=0      " Number of spaces to use for each step of (auto)indent. When zero the 'ts' value will be used.
-set softtabstop=4     " Number of spaces that a <Tab> counts for while performing editing operations, like inserting a <Tab> or using <BS>
-set tabstop=4         " Number of spaces that a <Tab> in the file counts for
-set foldmethod=marker " Folding method
-set hidden            " Switch between buffers without saving
-set autoindent        " Enable auto indent
-set autochdir         " Change directory where opened file from
-set number            " Line numbers are good
-set relativenumber    " Show numbers relative to current line
-set showcmd           " Show incomplete cmds down the bottom
-set noshowmode        " Hide showmode because of the powerline plugin
-set cursorline        " Highlight current line
+set enc=utf-8            " UTF-8 as default encoding
+set mouse-=a             " Disable select with mouse in visual mode
+"set nobackup            " Disable backup files
+"set nowritebackup       " Only in case you don't want a backup file while editing
+"set noswapfile          " Disable swap files
+set undofile             " Enable undo file
+set expandtab            " Expand tabs into spaces
+set shiftwidth=0         " Number of spaces to use for each step of (auto)indent. When zero the 'ts' value will be used.
+set softtabstop=4        " Number of spaces that a <Tab> counts for while performing editing operations, like inserting a <Tab> or using <BS>
+set tabstop=4            " Number of spaces that a <Tab> in the file counts for
+set foldmethod=marker    " Folding method
+set hidden               " Switch between buffers without saving
+set autoindent           " Enable auto indent
+set autochdir            " Change directory where opened file from
+set number               " Line numbers are good
+set relativenumber       " Show numbers relative to current line
+set showcmd              " Show incomplete cmds down the bottom
+set noshowmode           " Hide showmode because of the powerline plugin
+set cursorline           " Highlight current line
+set completeopt-=preview " Do not show preview window at autocomplete
+set scrolloff=15         " Number of lines from edge to start scrolling
 
 let g:dein#enable_notification = 1            " Use notification
 let g:dein#notification_time = 3              
@@ -106,8 +112,6 @@ let g:syntastic_python_checkers = ['flake8 --ignore=E501'] " Ignore some errors
 
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1 " Switch cursor shape between block and vertical in INSERT mode
 set fillchars=vert:│,fold:-         " Pseudo symbols for borders
-set completeopt-=preview            " Do not show preview window at autocomplete
-set scrolloff=15                    " Number of lines from edge to start scrolling
 
 colorscheme molokai                 " Set colorcheme
 let g:molokai_original = 1          " Use original variant
@@ -134,20 +138,15 @@ if has('multi_byte')
 else
   set listchars=tab:»\ ,trail:·,eol:¶,extends:>,precedes:<,nbsp:_ " Fallback
 endif
-
-" Mark text in lines above 80 symbols in Ruby/Python/js/C/C++ files
-augroup vimrc_autocmds
-    autocmd!
-    autocmd FileType ruby,python,javascript,c,cpp highlight Excess ctermbg=DarkGrey guibg=Black
-    autocmd FileType ruby,python,javascript,c,cpp match Excess /\%80v.*/
-    autocmd FileType ruby,python,javascript,c,cpp set nowrap
-augroup END
 " }}}
 
 " {{{ Key bindings
 
-" Override mapleader
-let mapleader = '`'
+" Exit vim
+nmap <leader>q :q!<cr>
+
+" Close buffer
+nmap <leader>c :bd<cr>
 
 " Show/Hide tab's and eol's
 nmap <leader>l :set list!<cr>
@@ -172,6 +171,9 @@ nmap <F5> :UndotreeToggle<cr>
 
 " Toogle Colorizer
 "nmap <F8> :ColorToggle<cr>
+
+" Toggle highlight search results
+nnoremap <leader><space> :set hlsearch!<cr>
 
 " Navigation in autocomplete window
 inoremap <expr> <c-j> ("\<C-n>")
@@ -233,4 +235,14 @@ nnoremap <silent> <M-о> :TmuxNavigateDown<cr>
 nnoremap <silent> <M-л> :TmuxNavigateUp<cr>
 nnoremap <silent> <M-д> :TmuxNavigateRight<cr>
 nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+" }}}
+
+" {{{ Auto commands
+" Mark text in lines above 80 symbols in Ruby/Python/js/C/C++ files
+augroup vimrc_autocmds
+    autocmd!
+    autocmd FileType ruby,python,javascript,c,cpp highlight Excess ctermbg=DarkGrey guibg=Black
+    autocmd FileType ruby,python,javascript,c,cpp match Excess /\%80v.*/
+    autocmd FileType ruby,python,javascript,c,cpp set nowrap
+augroup END
 " }}}
