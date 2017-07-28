@@ -1,3 +1,6 @@
+" Tmux Navigator Plugin
+source ~/.config/nvim/dein/repos/github.com/christoomey/vim-tmux-navigator/plugin/tmux_navigator.vim
+
 " Based on vim script "to work like less" by Bram Moolenaar <Bram@vim.org>
 set laststatus=0
 set scrolloff=0
@@ -23,7 +26,7 @@ endif
 
 " Give help
 noremap h :call <SID>Help()<CR>
-map H h
+noremap H h
 fun! s:Help()
   echo "<Space>   One page forward          b         One page backward"
   echo "d         Half a page forward       u         Half a page backward"
@@ -45,42 +48,42 @@ noremap <script> R <C-L><SID>L
 
 " Start of file
 noremap <script> g gg<SID>L
-map < g
-map <Esc>< g
-map <Home> g
-map <kHome> g
+noremap < g
+noremap <Esc>< g
+noremap <Home> g
+noremap <kHome> g
 
 " End of file
 noremap <script> G G<SID>L
-map > G
-map <Esc>> G
-map <End> G
-map <kEnd> G
+noremap > G
+noremap <Esc>> G
+noremap <End> G
+noremap <kEnd> G
 
-nmap <space> <PageDown><C-G>
-nmap b <C-B><C-G>
-nmap q :q!<CR>
+nnoremap <space> <PageDown><C-G>
+nnoremap b <C-B><C-G>
+nnoremap q :q!<CR>
 
 " Scroll one line backward
 noremap <script> k <C-Y><SID>L
-map y k
-map <C-Y> k
-map <C-P> k
-map <C-K> k
-map <Up> k
+noremap y k
+noremap <C-Y> k
+noremap <C-P> k
+noremap <C-K> k
+noremap <Up> k
 
 " Scroll one line forward
 noremap <script> <CR> <C-E><SID>L
-map <C-N> <CR>
-map e <CR>
-map <C-E> <CR>
-map j <CR>
-map <C-J> <CR>
-map <Down> <CR>
+noremap <C-N> <CR>
+noremap e <CR>
+noremap <C-E> <CR>
+noremap j <CR>
+noremap <C-J> <CR>
+noremap <Down> <CR>
 
 " Go to percentage
 noremap <script> % %<SID>L
-map p %
+noremap p %
 
 " Search
 noremap <script> / H$:call <SID>Forward()<CR>/
@@ -115,3 +118,15 @@ endfun
 call s:Forward()
 cunmap <CR>
 
+" Smart navigation between tmux and vim
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> ш i
+nnoremap <silent> <M-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <M-р> :TmuxNavigateLeft<cr>
+nnoremap <silent> <M-о> :TmuxNavigateDown<cr>
+nnoremap <silent> <M-л> :TmuxNavigateUp<cr>
+nnoremap <silent> <M-д> :TmuxNavigateRight<cr>
+nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
