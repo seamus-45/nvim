@@ -26,7 +26,7 @@ endif
 
 " Give help
 noremap h :call <SID>Help()<CR>
-noremap H h
+map H h
 fun! s:Help()
   echo "<Space>   One page forward          b         One page backward"
   echo "d         Half a page forward       u         Half a page backward"
@@ -48,42 +48,42 @@ noremap <script> R <C-L><SID>L
 
 " Start of file
 noremap <script> g gg<SID>L
-noremap < g
-noremap <Esc>< g
-noremap <Home> g
-noremap <kHome> g
+map < g
+map <Esc>< g
+map <Home> g
+map <kHome> g
 
 " End of file
 noremap <script> G G<SID>L
-noremap > G
-noremap <Esc>> G
-noremap <End> G
-noremap <kEnd> G
+map > G
+map <Esc>> G
+map <End> G
+map <kEnd> G
 
-nnoremap <space> <PageDown><C-G>
-nnoremap b <C-B><C-G>
-nnoremap q :q!<CR>
+nmap <space> <PageDown><C-G>
+nmap b <C-B><C-G>
+nmap q :q!<CR>
 
 " Scroll one line backward
 noremap <script> k <C-Y><SID>L
-noremap y k
-noremap <C-Y> k
-noremap <C-P> k
-noremap <C-K> k
-noremap <Up> k
+map y k
+map <C-Y> k
+map <C-P> k
+map <C-K> k
+map <Up> k
 
 " Scroll one line forward
 noremap <script> <CR> <C-E><SID>L
-noremap <C-N> <CR>
-noremap e <CR>
-noremap <C-E> <CR>
-noremap j <CR>
-noremap <C-J> <CR>
-noremap <Down> <CR>
+map <C-N> <CR>
+map e <CR>
+map <C-E> <CR>
+map j <CR>
+map <C-J> <CR>
+map <Down> <CR>
 
 " Go to percentage
 noremap <script> % %<SID>L
-noremap p %
+map p %
 
 " Search
 noremap <script> / H$:call <SID>Forward()<CR>/
