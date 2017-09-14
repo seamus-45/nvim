@@ -94,7 +94,7 @@ set title                " Show title
 set undofile             " Enable undo file
 
 let g:dein#enable_notification = 1            " Use notification
-let g:dein#notification_time = 3
+let g:dein#notification_time = 3              " Notification timeout
 
 let g:deoplete#enable_at_startup = 1          " Enable deoplete autocompletion
 let g:deoplete#file#enable_buffer_path = 1    " Autocomplete files relative to current buffer
@@ -131,6 +131,10 @@ let g:airline#extensions#tabline#show_tabs = 1
 let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#show_tab_nr = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail' " Only show filename in tab
+
+" Multiple cursors plugin highlight (see help :highlight and help :highlight-link)
+highlight link multiple_cursors_cursor Cursor
+highlight link multiple_cursors_visual Visual
 
 " Style for non printable symbols
 if has('multi_byte')
@@ -185,8 +189,8 @@ nnoremap <f9> mzggg?G`z
 nnoremap <leader><space> :set hlsearch!<cr>
 
 " Navigation in autocomplete window
-inoremap <expr> <c-j> ("\<C-n>")
-inoremap <expr> <c-k> ("\<C-p>")
+inoremap <expr> <c-j> ("\<Down>")
+inoremap <expr> <c-k> ("\<Up>")
 
 " Smart indent blocks with < & >
 vnoremap < <gv
@@ -200,6 +204,12 @@ inoremap <m-l> <c-o>l
 inoremap <m-h> <c-o>h
 inoremap <m-L> <c-o>A
 inoremap <m-H> <c-o>I
+
+" MatchTagAlways jump to pair tag
+nnoremap <leader>m :MtaJumpToOtherTag<cr>
+
+" Deoplete complete common string in candidates
+inoremap <expr><C-l> deoplete#complete_common_string()
 
 " Supress buffergator defaults
 let g:buffergator_suppress_keymaps = 1
@@ -224,17 +234,6 @@ nnoremap <F1> <nop>
 nnoremap Q <nop>
 nnoremap K <nop>
 
-" Select tabs by Airline
-nnoremap <leader>1 <Plug>AirlineSelectTab1
-nnoremap <leader>2 <Plug>AirlineSelectTab2
-nnoremap <leader>3 <Plug>AirlineSelectTab3
-nnoremap <leader>4 <Plug>AirlineSelectTab4
-nnoremap <leader>5 <Plug>AirlineSelectTab5
-nnoremap <leader>6 <Plug>AirlineSelectTab6
-nnoremap <leader>7 <Plug>AirlineSelectTab7
-nnoremap <leader>8 <Plug>AirlineSelectTab8
-nnoremap <leader>9 <Plug>AirlineSelectTab9
-
 " Smart navigation between tmux and vim
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> ш i
@@ -257,13 +256,13 @@ nnoremap _pd :set ft=python.django<cr>
 nnoremap _d  :set ft=diff<cr>
 
 " Expand snippets on <TAB> if snippets exists, otherwise do autocompletion
-inoremap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)"
 \ : pumvisible() ? "\<C-n>" : "\<TAB>"
 " If popup window is visible do autocompletion from back
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Fix for jumping over placeholders for neosnippet
-snoremap <expr><TAB> neosnippet#jumpable() ?
+smap <expr><TAB> neosnippet#jumpable() ?
 \ "\<Plug>(neosnippet_jump)"
 \: "\<TAB>"
 
