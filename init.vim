@@ -16,7 +16,7 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   call dein#add(expand('~/.config/nvim/dein/repos/github.com/Shougo/dein.vim'))
 
   " Autocomplete
-  call dein#add('Shougo/deoplete.nvim')                                " Dark powered asynchronous completion framework for neovim<Paste>
+  call dein#add('Shougo/deoplete.nvim')                                " Dark powered asynchronous completion framework for neovim
   call dein#add('Shougo/neosnippet.vim')                               " Snippets support to Vim.
   call dein#add('Shougo/neosnippet-snippets')                          " Snippets collection
   call dein#add('Shougo/neco-syntax')                                  " Syntax source for autocomplete engine
@@ -41,7 +41,7 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   " Developing
   call dein#add('majutsushi/tagbar', {'on_cmd': ':TagbarToggle'})                                 " A class outline viewer for Vim
   call dein#add('tpope/vim-fugitive')                                                             " Git wrapper
-  call dein#add('scrooloose/syntastic', {'on_ft': ['python', 'javascript']})                      " Syntax checking
+  call dein#add('scrooloose/syntastic', {'on_ft': ['python', 'javascript', 'sh']})                " Syntax checking
   call dein#add('Valloric/MatchTagAlways', {'on_ft': ['xml', 'html', 'htmldjango', 'htmljinja']}) " Always highlights the enclosing html/xml tags
   call dein#add('mattn/emmet-vim', {'on_ft': ['xml', 'html', 'css']})                             " Provides support for expanding abbreviations similar to emmet.
   call dein#add('python-mode/python-mode', {'on_ft': ['python', 'django']})
@@ -277,6 +277,7 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 autocmd FileType nginx set noexpandtab tabstop=8 softtabstop=0 shiftwidth=0 " Configure tabs for company style
+autocmd FileType lua set noexpandtab tabstop=2 softtabstop=2 shiftwidth=2   " Configure tabs for company style
 autocmd FileType vim let b:delimitMate_quotes="'"                           " Disable auto close \" quotes for vim files
 autocmd FileType python set completeopt=longest,menuone,preview             " Autocomplete settings
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"', "'"]		" Python multiline quotes
