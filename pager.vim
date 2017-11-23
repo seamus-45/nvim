@@ -1,6 +1,11 @@
 " Tmux Navigator Plugin
 source ~/.config/nvim/dein/repos/github.com/christoomey/vim-tmux-navigator/plugin/tmux_navigator.vim
 
+" Escape sequences Plugin
+source ~/.config/nvim/dein/repos/github.com/fedorenchik/AnsiEsc/plugin/AnsiEscPlugin.vim
+source ~/.config/nvim/dein/repos/github.com/fedorenchik/AnsiEsc/plugin/cecutil.vim
+source ~/.config/nvim/dein/repos/github.com/fedorenchik/AnsiEsc/autoload/AnsiEsc.vim
+
 " Based on vim script "to work like less" by Bram Moolenaar <Bram@vim.org>
 set laststatus=0
 set scrolloff=0
