@@ -5,6 +5,7 @@
 let mapleader = '`'
 
 " Required:
+set runtimepath+=/usr/share/nvim-qt/runtime/plugin/nvim_gui_shim.vim
 set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
 
 " Required:

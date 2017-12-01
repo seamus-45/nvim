@@ -1,10 +1,24 @@
-" Tmux Navigator Plugin
-source ~/.config/nvim/dein/repos/github.com/christoomey/vim-tmux-navigator/plugin/tmux_navigator.vim
+set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
 
-" Escape sequences Plugin
-source ~/.config/nvim/dein/repos/github.com/fedorenchik/AnsiEsc/plugin/AnsiEscPlugin.vim
-source ~/.config/nvim/dein/repos/github.com/fedorenchik/AnsiEsc/plugin/cecutil.vim
-source ~/.config/nvim/dein/repos/github.com/fedorenchik/AnsiEsc/autoload/AnsiEsc.vim
+" Required:
+if dein#load_state(expand('~/.config/nvim/dein'))
+  call dein#begin(expand('~/.config/nvim/dein'), expand('~/.config/nvim/pager.vim'))
+
+  " Let dein manage dein
+  " Required:
+  call dein#add(expand('~/.config/nvim/dein/repos/github.com/Shougo/dein.vim'))
+
+  " Plugins
+  call dein#add('sjl/badwolf')                    " Bad Wolf color scheme
+  call dein#add('christoomey/vim-tmux-navigator') " Seamlessly navigation between vim and tmux splits
+  call dein#add('fedorenchik/AnsiEsc')            " Handle ANSI-escape sequences
+
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
+
+colorscheme badwolf
 
 " Based on vim script "to work like less" by Bram Moolenaar <Bram@vim.org>
 set laststatus=0
