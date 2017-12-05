@@ -1,12 +1,12 @@
 set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state(expand('~/.config/nvim/dein'))
-  call dein#begin(expand('~/.config/nvim/dein'), expand('~/.config/nvim/pager.vim'))
+if dein#load_state(expand('~/.config/nvim/pager'))
+  call dein#begin(expand('~/.config/nvim/pager'), expand('~/.config/nvim/pager.vim'))
 
   " Let dein manage dein
   " Required:
-  call dein#add(expand('~/.config/nvim/dein/repos/github.com/Shougo/dein.vim'))
+  call dein#add(expand('~/.config/nvim/pager/repos/github.com/Shougo/dein.vim'))
 
   " Plugins
   call dein#add('sjl/badwolf')                    " Bad Wolf color scheme

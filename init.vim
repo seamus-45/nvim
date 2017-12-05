@@ -306,7 +306,7 @@ let g:pymode_folding = 1                               " Python mode folding
 let g:pymode_run = 0                                   " Turn off run code script
 let g:pymode_virtualenv = 0                            " Automatic virtualenv detection
 
-let g:pymode_rope = 1                                  " Enable rope script
+let g:pymode_rope = 0                                  " Enable rope script
 let g:pymode_rope_lookup_project = 0                   " Do not search project cache in parent directories
 let g:pymode_rope_regenerate_on_write = 1              " Regenerate project cache on every save
 let g:pymode_rope_completion = 0                       " Rope completion plugin
