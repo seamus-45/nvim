@@ -49,6 +49,7 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   "call dein#add('chrisbra/Colorizer', {'on_map': ':ColorToggle'})                                 " Color hex codes and color names
   " Syntax
   call dein#add('evanmiller/nginx-vim-syntax')                                                    " Nginx
+  call dein#add('gentoo/gentoo-syntax')                                                           " Gentoo syntax and ebuild templates
   " Other
   call dein#add('mbbill/undotree', {'on_cmd': ':UndotreeToggle'})  " Undo tree manager
   call dein#add('qpkorr/vim-renamer', {'on_cmd': ':Renamer'})      " Rename files in the vim buffer
