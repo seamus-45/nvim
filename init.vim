@@ -32,6 +32,7 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   call dein#add('tommcdo/vim-exchange', {'on_map': {'n': 'cx', 'x': 'X'}})                                      " Easy text exchange operator for Vim.
   call dein#add('terryma/vim-multiple-cursors', {'on_map': {'n': ['<C-n>', '<C-p>'], 'x': '<C-n>'}})            " True Sublime Text style multiple selections
   call dein#add('Raimondi/delimitMate')                                                                         " Automatic closing of quotes, parenthesis, brackets
+  call dein#add('iamcco/markdown-preview.vim', {'on_ft': 'markdown'})                                           " Real-time markdown preview
   " Appearance
   call dein#add('vim-airline/vim-airline')                                                        " Lean & mean status/tabline for vim that's light as air
   call dein#add('vim-airline/vim-airline-themes', {'depends': 'vim-airline'})                     " Airline themes collection
