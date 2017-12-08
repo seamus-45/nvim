@@ -72,6 +72,7 @@ endif
 "set nowritebackup       " Only in case you don't want a backup file while editing
 set autochdir            " Change directory where opened file from
 set autoindent           " Enable auto indent
+set smartindent          " Enable smart indent
 set completeopt-=preview " Do not show preview window at autocomplete
 set cursorline           " Highlight current line
 set enc=utf-8            " UTF-8 as default encoding
