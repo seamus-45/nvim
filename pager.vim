@@ -11,7 +11,7 @@ if dein#load_state(expand('~/.config/nvim/pager'))
   " Plugins
   call dein#add('sjl/badwolf')                    " Bad Wolf color scheme
   call dein#add('christoomey/vim-tmux-navigator') " Seamlessly navigation between vim and tmux splits
-  call dein#add('fedorenchik/AnsiEsc')            " Handle ANSI-escape sequences
+  call dein#add('powerman/vim-plugin-AnsiEsc')    " Handle ANSI-escape sequences
 
   " Required:
   call dein#end()

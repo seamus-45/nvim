@@ -58,7 +58,7 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   call dein#add('christoomey/vim-tmux-navigator')                  " Seamlessly navigation between vim and tmux splits
   call dein#add('jeetsukumaran/vim-buffergator')                   " List, select and switch between buffers
   call dein#add('ctrlpvim/ctrlp.vim')                              " Fuzzy file/buffer/mru/tag finder
-  call dein#add('fedorenchik/AnsiEsc')                             " Handle ANSI-escape sequences
+  "call dein#add('powerman/vim-plugin-AnsiEsc')                     " Handle ANSI-escape sequences
 
   " Required:
   call dein#end()
