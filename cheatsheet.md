@@ -1,8 +1,8 @@
 Vim-surround
 ------------
 
-NORMAL        |
---------------|
+NORMAL        | |
+--------------|--
 `cs`          | ChangeSurrounding from/to
 `cs"<html>`   | `""` => `<html></html>`
 `cst"`        | ChangeSurroundingTags. For revert previous.
@@ -12,15 +12,15 @@ NORMAL        |
 `cs"{`        | to add braces with space.  Use `}` for no space
 `yssb`, `yss` | YieldStringSurrounging. For wrap entire string
 
-VISUAL    |
-----------|
+VISUAL    | |
+----------|--
 `S<html>` | Wrap visual selection with `<html></html>`
 
 TComment
 --------
 
-NORMAL       |
--------------|
+NORMAL       | |
+-------------|--
 `gc{motion}` | Toggle comments
 `gcc`        | Toggle comemnt for the current line
 `g<{motion}` | Explicitly uncomment
@@ -38,14 +38,14 @@ Tabularize
 Vim-exchange
 ------------
 
-NORMAL       |
--------------|
+NORMAL       | |
+-------------|--
 `cx{motion}` | Exchange operator
 `cxiw`       | Exchange word, can use `.` the second time
 `cxc`        | Clear any motion pending for exchange 
 
-VISUAL |
--------|
+VISUAL | |
+-------|--
 `X`    | Exchange operator
 
 _Note: the {motion} used in the first and second use of cx don't have to be the same._
@@ -53,8 +53,8 @@ _Note: the {motion} used in the first and second use of cx don't have to be the 
 Vim-multiple-cursors
 --------------------
 
-NORMAL / VISUAL               |
-------------------------------|
+NORMAL / VISUAL               | |
+------------------------------|--
 **VSelection**`{motion}<c-n>` | Example: viw`<c-n>`..
 `<c-n>`                       | Add virtual cursor to current word/selection
 `<c-p>`                       | Remove current cursor and go back to the previous
@@ -64,8 +64,8 @@ NORMAL / VISUAL               |
 Emmet-vim
 ---------
 
-INSERT                  |
-------------------------|
+INSERT                  | |
+------------------------|--
 `<c-y>`                 | Leader
 `<c-y>,`                | Expand abbreviation
 `<c-y>n`                | Next edit point
@@ -77,8 +77,8 @@ INSERT                  |
 `ul>li#menu$*3<c-y>,`   | Add `ul` and three li with menu1,menu2,menu3 id's
 `html:5<c-y>,`          | Create html5 template
 
-VISUAL   |
----------|
+VISUAL   | |
+---------|--
 `<c-y>m` | Merge selected lines
 `<c-y>,` | Wrap abbreviation around selected lines
 
@@ -88,8 +88,8 @@ UndoTree
 
 `F5 (Toggle Undotree)`
 
-LEGEND  |
---------|
+LEGEND  | |
+--------|--
 `>seq<` | Current position
 `{seq}` | Next change that will be restored by `<c-r>`
 `[seq]` | last change and where further changes will be added
@@ -97,8 +97,8 @@ LEGEND  |
 Vim-esearch
 -----------
 
-NORMAL                           |
----------------------------------|
+NORMAL                           | |
+---------------------------------|--
 `<leader>ff`                     | Insert search pattern
 `s`, `v`, `t`                    | Open file under the cursor in split/vsplit/tab
 `S`, `V`, `T`                    | Open file under the cursor silently
@@ -111,13 +111,13 @@ NORMAL                           |
 CtrlP
 -----
 
-NORMAL |
--------|
+NORMAL | |
+-------|--
 `go`   | Find file mode
 `gp`   | Most recent use mode
 
-CTRLP                 |
-----------------------|
+CTRLP                 | |
+----------------------|--
 `<f5>`                | Purge the cache for the current directory
 `<c-f>`, `<c-b>`      | Cycle between modes
 `<c-d>`               | Filename only search
@@ -130,8 +130,8 @@ CTRLP                 |
 Misc
 ----
 
-NORMAL                |
-----------------------|
+NORMAL                | |
+----------------------|--
 `<leader>q`           | Quit
 `<leader>c`           | Close buffer
 `<leader>l`           | Toggle non printables
