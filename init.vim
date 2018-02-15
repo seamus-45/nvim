@@ -22,6 +22,7 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   call dein#add('Shougo/neosnippet-snippets')                          " Snippets collection
   call dein#add('Shougo/neco-syntax')                                  " Syntax source for autocomplete engine
   call dein#add('wokalski/autocomplete-flow', {'on_ft': 'javascript'}) " PHP completion (flow source)
+  call dein#add('davidhalter/jedi-vim', {'on_ft': 'python'})           " Python completion (jedi source)
   call dein#add('zchee/deoplete-jedi', {'on_ft': 'python'})            " Python completion (jedi source)
   call dein#add('haya14busa/dein-command.vim')                         " Dein rich completion
   " Text formatting
@@ -89,7 +90,7 @@ set relativenumber       " Show numbers relative to current line
 set scrolloff=15         " Number of lines from edge to start scrolling
 set shiftround           " Round indent to multiple of 'shiftwidth'
 set shiftwidth=0         " Number of spaces to use for each step of (auto)indent. When zero the 'ts' value will be used.
-set shortmess+=I         " Do not give the intro message when starting Vim 
+set shortmess+=I         " Do not give the intro message when starting Vim
 set showcmd              " Show incomplete cmds down the bottom
 set softtabstop=4        " Number of spaces that a <Tab> counts for while performing editing operations, like inserting a <Tab> or using <BS>
 set splitbelow           " Split the new window below the current one
@@ -99,15 +100,10 @@ set tabstop=4            " Number of spaces that a <Tab> in the file counts for
 set title                " Show title
 set undofile             " Enable undo file
 
-let g:dein#enable_notification = 1            " Use notification
-let g:dein#notification_time = 3              " Notification timeout
+let g:dein#enable_notification = 1             " Use notification
+let g:dein#notification_time = 3               " Notification timeout
 
-let g:deoplete#enable_at_startup = 1          " Enable deoplete autocompletion
-let g:deoplete#file#enable_buffer_path = 1    " Autocomplete files relative to current buffer
-let g:deplete#sources#jedi#show_docstring = 1 " Shows docstring in preview window
-let g:neosnippet#enable_completed_snippet = 1 " Enable neosnippets
-
-let g:ctrlp_working_path_mode = 'a'           " Start search from directory of the current file, unless it is a subdirectory of the cwd
+let g:ctrlp_working_path_mode = 'a'            " Start search from directory of the current file, unless it is a subdirectory of the cwd
 " Setup some default ignores
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site|bower_components)$',
@@ -296,8 +292,8 @@ autocmd FileType python set noautochdir 									" Do not confuse PymodeRope. It
 
 " {{{ Python-Mode
 
-let g:pymode_doc = 1                                   " Turn on documentation
-let g:pymode_doc_bind = 'K'                            " Bind keys to show documentation for current word
+let g:pymode_doc = 0                                   " Turn on documentation
+"let g:pymode_doc_bind = 'K'                            " Bind keys to show documentation for current word
 
 let g:pymode_syntax = 1                                " Turn on pymode syntax
 let g:pymode_syntax_all = 0                            " Enable all python highlights
@@ -324,6 +320,26 @@ let g:pymode_rope_rename_module_bind = '<leader>rR'    " Rename a current module
 let g:pymode_rope_goto_definition_bind = '<leader>rd'  " Move to definition
 let g:pymode_rope_organize_imports_bind = '<leader>ro' " Organize/Sort import according to PEP8. Drop unused.
 let g:pymode_rope_extract_method_bind = '<leader>rm'   " Generate method from selected lines
+
+" }}}
+
+" {{{ Deoplete and Jedi-vim
+
+let g:jedi#auto_vim_configuration = 0          " Supress autoload defaults
+let g:jedi#completions_enabled = 0             " Disable jedi-vim autocompletion
+let g:jedi#documentation_command = "K"         " Un/Bind some keys
+let g:jedi#goto_command = ""
+let g:jedi#goto_assignments_command = ""
+let g:jedi#goto_definitions_command = ""
+let g:jedi#usages_command = ""
+let g:jedi#completions_command = ""
+let g:jedi#rename_command = ""
+
+let g:deoplete#enable_at_startup = 1           " Enable deoplete autocompletion
+let g:deoplete#file#enable_buffer_path = 1     " Autocomplete files relative to current buffer
+let g:deoplete#sources#jedi#show_docstring = 0 " Shows docstring in preview window
+
+let g:neosnippet#enable_completed_snippet = 1  " Enable neosnippets
 
 " }}}
 
