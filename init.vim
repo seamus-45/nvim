@@ -22,7 +22,6 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   call dein#add('Shougo/neosnippet-snippets')                          " Snippets collection
   call dein#add('Shougo/neco-syntax')                                  " Syntax source for autocomplete engine
   call dein#add('wokalski/autocomplete-flow', {'on_ft': 'javascript'}) " PHP completion (flow source)
-  call dein#add('davidhalter/jedi', {'on_ft': 'python'})               " Python completion (jedi plugin)
   call dein#add('zchee/deoplete-jedi', {'on_ft': 'python'})            " Python completion (jedi source)
   call dein#add('haya14busa/dein-command.vim')                         " Dein rich completion
   " Text formatting
@@ -105,6 +104,7 @@ let g:dein#notification_time = 3              " Notification timeout
 
 let g:deoplete#enable_at_startup = 1          " Enable deoplete autocompletion
 let g:deoplete#file#enable_buffer_path = 1    " Autocomplete files relative to current buffer
+let g:deplete#sources#jedi#show_docstring = 1 " Shows docstring in preview window
 let g:neosnippet#enable_completed_snippet = 1 " Enable neosnippets
 
 let g:ctrlp_working_path_mode = 'a'           " Start search from directory of the current file, unless it is a subdirectory of the cwd
