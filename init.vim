@@ -33,6 +33,7 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   call dein#add('terryma/vim-multiple-cursors', {'on_map': {'n': ['<C-n>', '<C-p>'], 'x': '<C-n>'}})            " True Sublime Text style multiple selections
   call dein#add('Raimondi/delimitMate')                                                                         " Automatic closing of quotes, parenthesis, brackets
   call dein#add('iamcco/markdown-preview.vim', {'on_ft': 'markdown'})                                           " Real-time markdown preview
+  call dein#add('xuhdev/vim-latex-live-preview', {'on_ft': 'tex'})                                              " Real-time LaTeX PDF preview
   " Appearance
   call dein#add('vim-airline/vim-airline')                                                        " Lean & mean status/tabline for vim that's light as air
   call dein#add('vim-airline/vim-airline-themes', {'depends': 'vim-airline'})                     " Airline themes collection
@@ -112,6 +113,8 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg|pyc)$',
 \}
 
+let g:livepreview_previewer = 'zathura'        " PDF viewer for Latex Live Preview
+let g:livepreview_engine = 'pdflatex'
 " }}}
 
 " {{{ Interface
@@ -301,7 +304,7 @@ let g:pymode_syntax_builtin_objs = 1                   " Highlight builtin objec
 let g:pymode_syntax_highlight_self = 1                 " Highlight 'self' keyword
 
 let g:pymode_lint = 1                                  " Turn on code checking
-let g:pymode_lint_ignore = 'E501'                      " Ignore some errors
+let g:pymode_lint_ignore = ['E501']                    " Ignore some errors
 let g:pymode_lint_on_write = 1                         " Check code on every save
 
 let g:pymode_breakpoint = 0                            " I do not use python debuggers. Worth to try?
