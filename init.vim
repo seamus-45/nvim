@@ -22,6 +22,7 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   call dein#add('Shougo/neosnippet-snippets')                          " Snippets collection
   call dein#add('Shougo/neco-syntax')                                  " Syntax source for autocomplete engine
   call dein#add('wokalski/autocomplete-flow', {'on_ft': 'javascript'}) " PHP completion (flow source)
+  call dein#add('davidhalter/jedi', {'on_ft': 'python'})               " Python completion (jedi plugin)
   call dein#add('zchee/deoplete-jedi', {'on_ft': 'python'})            " Python completion (jedi source)
   call dein#add('haya14busa/dein-command.vim')                         " Dein rich completion
   " Text formatting
@@ -50,7 +51,7 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   call dein#add('python-mode/python-mode', {'on_ft': ['python', 'django']})
   "call dein#add('chrisbra/Colorizer', {'on_map': ':ColorToggle'})                                 " Color hex codes and color names
   " Syntax
-  call dein#add('evanmiller/nginx-vim-syntax')                                                    " Nginx
+  call dein#add('rhowardiv/nginx-vim-syntax')                                                    " Nginx
   call dein#add('gentoo/gentoo-syntax')                                                           " Gentoo syntax and ebuild templates
   " Other
   call dein#add('mbbill/undotree', {'on_cmd': ':UndotreeToggle'})  " Undo tree manager
