@@ -1,1 +1,1 @@
-Guifont Droid Sans Mono Slashed for Powerline:h11
+Guifont! Iosevka\ Term:h13

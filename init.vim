@@ -23,7 +23,9 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   call dein#add('Shougo/neco-syntax')                                  " Syntax source for autocomplete engine
   call dein#add('wokalski/autocomplete-flow', {'on_ft': 'javascript'}) " PHP completion (flow source)
   call dein#add('davidhalter/jedi-vim', {'on_ft': 'python'})           " Python completion (jedi source)
-  call dein#add('zchee/deoplete-jedi', {'on_ft': 'python'})            " Python completion (jedi source)
+  call dein#add('zchee/deoplete-jedi', {
+                    \ 'depends': 'deoplete.nvim',
+                    \ 'on_event': 'InsertEnter', 'on_ft': 'python'})   " Python completion (jedi source)
   call dein#add('haya14busa/dein-command.vim')                         " Dein rich completion
   " Text formatting
   call dein#add('tpope/vim-repeat', {'on_map': '.'})                                                            " Needed by vim-surrond
@@ -51,8 +53,10 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   call dein#add('python-mode/python-mode', {'on_ft': ['python', 'django']})
   "call dein#add('chrisbra/Colorizer', {'on_map': ':ColorToggle'})                                 " Color hex codes and color names
   " Syntax
-  call dein#add('rhowardiv/nginx-vim-syntax')                                                    " Nginx
+  call dein#add('rhowardiv/nginx-vim-syntax')                                                     " Nginx
   call dein#add('gentoo/gentoo-syntax')                                                           " Gentoo syntax and ebuild templates
+  call dein#add('peterhoeg/vim-qml', {'on_ft': 'qml'})                                            " QML syntax
+  call dein#add('kergoth/vim-bitbake', {'on_ft': 'bitbake'})                                      " BitBake syntax
   " Other
   call dein#add('mbbill/undotree', {'on_cmd': ':UndotreeToggle'})  " Undo tree manager
   call dein#add('qpkorr/vim-renamer', {'on_cmd': ':Renamer'})      " Rename files in the vim buffer
@@ -60,6 +64,7 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   call dein#add('christoomey/vim-tmux-navigator')                  " Seamlessly navigation between vim and tmux splits
   call dein#add('jeetsukumaran/vim-buffergator')                   " List, select and switch between buffers
   call dein#add('ctrlpvim/ctrlp.vim')                              " Fuzzy file/buffer/mru/tag finder
+  call dein#add('vifm/vifm.vim')                                   " Vim plugin that allows use of vifm as a file picker
   "call dein#add('powerman/vim-plugin-AnsiEsc')                     " Handle ANSI-escape sequences
 
   " Required:
@@ -287,7 +292,7 @@ autocmd FileType vim let b:delimitMate_quotes="'"                           " Di
 autocmd FileType python set completeopt=longest,menuone,preview             " Autocomplete settings
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"', "'"]		" Python multiline quotes
 autocmd FileType python set noautochdir 									" Do not confuse PymodeRope. It should find project cache.
-
+autocmd FileType c set noexpandtab tabstop=4 softtabstop=0 shiftwidth=0 list
 " }}}
 
 " {{{ Python-Mode
