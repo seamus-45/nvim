@@ -104,6 +104,7 @@ set synmaxcol=800        " Don't try to highlight lines longer than 800 characte
 set tabstop=4            " Number of spaces that a <Tab> in the file counts for
 set title                " Show title
 set undofile             " Enable undo file
+set modeline             " Enable modeline
 
 let g:dein#enable_notification = 1             " Use notification
 let g:dein#notification_time = 3               " Notification timeout
