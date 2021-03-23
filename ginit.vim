@@ -1,1 +1,1 @@
-Guifont! Iosevka\ Term:h13
+set guifont=Droid\ Sans\ Mono\ Slashed:h11

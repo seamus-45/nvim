@@ -57,6 +57,7 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   call dein#add('gentoo/gentoo-syntax')                                                           " Gentoo syntax and ebuild templates
   call dein#add('peterhoeg/vim-qml', {'on_ft': 'qml'})                                            " QML syntax
   call dein#add('kergoth/vim-bitbake', {'on_ft': 'bitbake'})                                      " BitBake syntax
+  call dein#add('pearofducks/ansible-vim')                                                        " Ansible: YAML, Jinja2 and hosts files
   " Other
   call dein#add('mbbill/undotree', {'on_cmd': ':UndotreeToggle'})  " Undo tree manager
   call dein#add('qpkorr/vim-renamer', {'on_cmd': ':Renamer'})      " Rename files in the vim buffer
@@ -288,7 +289,8 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 autocmd FileType nginx set noexpandtab tabstop=8 softtabstop=0 shiftwidth=0 " Configure tabs for company style
-autocmd FileType lua set noexpandtab tabstop=2 softtabstop=2 shiftwidth=2   " Configure tabs for company style
+autocmd FileType lua set noexpandtab tabstop=2 softtabstop=2 shiftwidth=2   " Configure tabs
+autocmd FileType yaml set expandtab tabstop=2 softtabstop=2 shiftwidth=2    " Configure tabs
 autocmd FileType vim let b:delimitMate_quotes="'"                           " Disable auto close \" quotes for vim files
 autocmd FileType python set completeopt=longest,menuone,preview             " Autocomplete settings
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"', "'"]		" Python multiline quotes
