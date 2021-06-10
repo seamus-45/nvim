@@ -296,6 +296,7 @@ autocmd FileType python set completeopt=longest,menuone,preview             " Au
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"', "'"]		" Python multiline quotes
 autocmd FileType python set noautochdir 									" Do not confuse PymodeRope. It should find project cache.
 autocmd FileType c set noexpandtab tabstop=4 softtabstop=0 shiftwidth=0 list
+autocmd FileType text set textwidth=0                                       " Stop auto wrap
 " }}}
 
 " {{{ Python-Mode
@@ -343,9 +344,9 @@ let g:jedi#usages_command = ""
 let g:jedi#completions_command = ""
 let g:jedi#rename_command = ""
 
-let g:deoplete#enable_at_startup = 1           " Enable deoplete autocompletion
-let g:deoplete#file#enable_buffer_path = 1     " Autocomplete files relative to current buffer
-let g:deoplete#sources#jedi#show_docstring = 0 " Shows docstring in preview window
+let g:deoplete#enable_at_startup = 1                            " Enable deoplete autocompletion
+let g:deoplete#sources#jedi#show_docstring = 0                  " Shows docstring in preview window
+call deoplete#custom#var('file', 'enable_buffer_path', v:true)  " Autocomplete files relative to current buffer
 
 let g:neosnippet#enable_completed_snippet = 1  " Enable neosnippets
 
