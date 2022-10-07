@@ -66,6 +66,7 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   call dein#add('jeetsukumaran/vim-buffergator')                   " List, select and switch between buffers
   call dein#add('ctrlpvim/ctrlp.vim')                              " Fuzzy file/buffer/mru/tag finder
   call dein#add('vifm/vifm.vim')                                   " Vim plugin that allows use of vifm as a file picker
+  call dein#add('ojroques/vim-oscyank')                            " Copy text to the system clipboard from anywhere using the ANSI OSC52 sequence
   "call dein#add('powerman/vim-plugin-AnsiEsc')                     " Handle ANSI-escape sequences
 
   " Required:
@@ -119,6 +120,8 @@ let g:ctrlp_custom_ignore = {
 
 let g:livepreview_previewer = 'zathura'        " PDF viewer for Latex Live Preview
 let g:livepreview_engine = 'pdflatex'
+
+let g:oscyank_term = 'default'
 " }}}
 
 " {{{ Interface
@@ -199,6 +202,9 @@ nnoremap <f9> mzggg?G`z
 
 " Toggle highlight search results
 nnoremap <leader><space> :set hlsearch!<cr>
+
+# Copy selection to remote clipboard
+vnoremap <leader>c :OSCYank<CR>
 
 " Navigation in autocomplete window
 inoremap <expr> <c-j> ("\<Down>")
