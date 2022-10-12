@@ -203,7 +203,7 @@ nnoremap <f9> mzggg?G`z
 " Toggle highlight search results
 nnoremap <leader><space> :set hlsearch!<cr>
 
-# Copy selection to remote clipboard
+" Copy selection to remote clipboard
 vnoremap <leader>c :OSCYank<CR>
 
 " Navigation in autocomplete window
@@ -303,6 +303,12 @@ autocmd FileType python let b:delimitMate_nesting_quotes = ['"', "'"]		" Python 
 autocmd FileType python set noautochdir 									" Do not confuse PymodeRope. It should find project cache.
 autocmd FileType c set noexpandtab tabstop=4 softtabstop=0 shiftwidth=0 list
 autocmd FileType text set textwidth=0                                       " Stop auto wrap
+
+" Highlight yanked region
+augroup highlight_yank
+    autocmd!
+    au TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
+augroup END
 " }}}
 
 " {{{ Python-Mode
